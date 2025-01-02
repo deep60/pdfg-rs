@@ -94,7 +94,7 @@ fn main() {
     }
 }
 
-fn generate_xmls() {
+fn generate_xmls(pod: Podcast) -> Result<HashMap<String, Channel>, ()> {
     let mut cb = ChannelBuilder::default();
     let mut items = ITunesChannelExtension::ddefault();
 
