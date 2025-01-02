@@ -36,7 +36,7 @@ struct Podcast {
     logo: Logo,
     category: String,
 
-    episode: Vec,
+    episode: Vec<Episode>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -49,14 +49,14 @@ struct Logo {
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case", deny_unknoown_fields)]
-struct ITunesOwner {
+struct ItunesOwner {
     name: String,
     email: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case", deny_unknoown_fields)]
-struct ITunesCategory {
+struct ItunesCategory {
     text: String,
     itunes_category: String,
 }
