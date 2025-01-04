@@ -1,7 +1,7 @@
 use chrono::Utc;
 use rss::{
     extension::{
-        itunes::{self, ITunesCategory, ITunesChannelExtension, ITunesItemExtension, ITunesOwner},
+        itunes::{ITunesCategory, ITunesChannelExtension, ITunesItemExtension, ITunesOwner},
         Extension, ExtensionBuilder, ExtensionMap,
     },
     Channel, ChannelBuilder, Enclosure, Guid, Image, Item, ItemBuilder,
@@ -105,7 +105,7 @@ fn generate_xmls(pod: Podcast) -> Result<HashMap<String, Channel>, ()> {
     itunes_owner.set_email(Some(pod.author_email.clone()));
 
     itunes.set_author(pod.author.clone());
-    itunes.set_categries(vec![itunes_category]);
+    itunes.set_categories(vec![itunes_category]);
     itunes.set_image(pod.logo.url.clone());
     itunes.set_explicit(Some(
         if pod.explicit { "true" } else { "false" }.to_string(),
@@ -114,7 +114,7 @@ fn generate_xmls(pod: Podcast) -> Result<HashMap<String, Channel>, ()> {
     itunes.set_owner(itunes_owner);
     itunes.set_subtitle(pod.subtitle);
     itunes.set_summary(pod.description.clone());
-    itunes.set_keyword(pod.keywords.join(", "));
+    itunes.set_keywords(pod.keywords.join(", "));
 
     let mut namespaces: BTreeMap<String, String> = BTreeMap::new();
 
