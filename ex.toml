@@ -1,0 +1,77 @@
+# Reference Material
+#
+# * https://www.podcast.co/create/podcast-rss-feeds
+
+title = "Verbose Title Name"
+description = "Verbose description of the podcast."
+subtitle = "Short description of the podcast - 255 character max."
+website = "https://example.com/podcast"
+language = "en-us"
+copyright = "2020"
+webmaster = "webmaster@example.com (Webmaster)"
+managing-editor = "maned@example.com (Managing Editor)"
+
+author = "Web Master"
+author-email = "webmaster@example.com"
+
+formats = [
+    "flac",
+    "mp3",
+    "m4a",
+]
+hosting-base-url = "https://example.com/podcast/files/"
+explicit = false
+keywords = [
+    "separate",
+    "by",
+    "comma",
+    "and",
+    "space",
+]
+
+# TODO - support subcategories?
+category = "Education"
+
+[logo]
+url = "https://example.com/podcast/logo.png"
+
+# TODO - default to podcast settings?
+title = "Logo Title"
+
+# TODO - default to podcast settings?
+link = "https://example.com/podcast"
+
+[[episodes]]
+title = "Verbose title of the episode"
+url = "https://example.com/podcast/episode-1-guest/"
+description = "Verbose description of the episode."
+subtitle = "Short description of the episode - 255 character max."
+files = [
+    "1970-01-01-episode-xxx-subject.flac",
+    "1970-01-01-episode-xxx-subject.mp3",
+    "1970-01-01-episode-xxx-subject.m4a",
+]
+duration = "HH:MM:SS"
+publish-date = "Fri, 05 Oct 2018 09:00:00 GMT"
+keywords = [
+
+]
+length-bytes = 123456
+
+[[episodes]]
+title = "Verbose title of the episode 2"
+url = "https://example.com/podcast/episode-2-guest/"
+description = "Verbose description of the episode 2."
+subtitle = "Short description 2 of the episode - 255 character max."
+files = [
+    "1970-01-02-episode-xxx-subject.flac",
+    "1970-01-02-episode-xxx-subject.mp3",
+    "1970-01-02-episode-xxx-subject.m4a",
+]
+duration = "H:MM:SS"
+publish-date = "Fri, 05 Oct 2018 09:00:00 GMT"
+keywords = [
+
+]
+length-bytes = 234567
+transcript-url = "https://example.com/podcast/transcripts/episode-2-guest.vtt"
