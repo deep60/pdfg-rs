@@ -95,9 +95,9 @@ fn main() {
 
 fn generate_xmls(pod: Podcast) -> Result<HashMap<String, Channel>, ()> {
     let mut cb = ChannelBuilder::default();
-    let mut items = ITunesChannelExtension::ddefault();
+    let mut itunes = ITunesChannelExtension::default();
 
-    let mut itunes_category = ITunesCategory::ddefault();
+    let mut itunes_category = ITunesCategory::default();
     itunes_category.set_text(pod.category);
 
     let mut itunes_owner = ITunesOwner::default();
@@ -144,7 +144,7 @@ fn generate_xmls(pod: Podcast) -> Result<HashMap<String, Channel>, ()> {
         .generator(Some("pdfg-rs".into()))
         .image(image)
         .itunes_ext(itunes)
-        .namespace(namespaces);
+        .namespaces(namespaces);
 
     let mut map = HashMap::new();
 
@@ -188,7 +188,7 @@ fn generate_xmls(pod: Podcast) -> Result<HashMap<String, Channel>, ()> {
                     let mut encl = Enclosure::default();
                     encl.set_url(full_path.clone());
 
-                    let mine = match ext.to_lowercase().as_str() {
+                    let mime = match ext.to_lowercase().as_str() {
                         "mp3" => "audio/mpeg",
                         "m4a" => "audio/mp4",
                         "flac" => "audio/flac",
@@ -219,7 +219,7 @@ fn generate_xmls(pod: Podcast) -> Result<HashMap<String, Channel>, ()> {
                         .to_string();
 
                         //Build an Extension....
-                        let mut extension = ExtensionBuilder::ddefault();
+                        let mut extension = ExtensionBuilder::default();
                         extension.name("podcast:transcript");
                         let mut attrs = BTreeMap::new();
                         attrs.insert("url".to_string(), transcript);
@@ -248,7 +248,7 @@ fn generate_xmls(pod: Podcast) -> Result<HashMap<String, Channel>, ()> {
         }
     }
 
-    for (ext, items) in items_map.drain() {
+    for (ext, items) in item_map.drain() {
         let mut this_builder = base_builder.clone();
         println!("{:#?}", items);
         this_builder.items(items);
