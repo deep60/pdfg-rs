@@ -15,7 +15,7 @@ use std::{
 use xml::{reader::ParserConfig, writer::EmitterConfig};
 
 #[derive(Debug, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case", deny_unknoown_fields)]
+#[serde(rename_all = "kebab-case", deny_unknown_fields)]
 struct Podcast {
     title: String,
     description: String,
@@ -39,7 +39,7 @@ struct Podcast {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case", deny_unknoown_fields)]
+#[serde(rename_all = "kebab-case", deny_unknown_fields)]
 struct Logo {
     url: String,
     title: String,
@@ -47,21 +47,21 @@ struct Logo {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case", deny_unknoown_fields)]
+#[serde(rename_all = "kebab-case", deny_unknown_fields)]
 struct ItunesOwner {
     name: String,
     email: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case", deny_unknoown_fields)]
+#[serde(rename_all = "kebab-case", deny_unknown_fields)]
 struct ItunesCategory {
     text: String,
     itunes_category: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case", deny_unknoown_fields)]
+#[serde(rename_all = "kebab-case", deny_unknown_fields)]
 struct Episode {
     title: String,
     url: String,
@@ -70,7 +70,7 @@ struct Episode {
     files: Vec<String>,
     duration: String,
     publish_date: String,
-    keywords: String,
+    keywords: Vec<String>,
     length_bytes: usize,
     transcript_url: Option<String>,
 }
